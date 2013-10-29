@@ -13,7 +13,7 @@ from haystack.query import SearchQuerySet
 from taggit.models import Tag
 
 from cab.forms import SnippetForm, SnippetFlagForm
-from cab.models import Snippet, SnippetFlag, Language
+from cab.models import Snippet, SnippetFlag, Language, haskell
 from cab.utils import month_object_list, object_detail
 
 
@@ -70,7 +70,7 @@ def edit_snippet(request, snippet_id=None,
     else:
         template_name = 'cab/add_snippet.html'
         snippet = Snippet(author=request.user,
-                          language=Language.objects.get(name='Python'))
+                          language=haskell())
 
     if request.method == 'POST':
         form = SnippetForm(instance=snippet, data=request.POST)

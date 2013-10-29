@@ -20,7 +20,7 @@ class LatestSnippetsFeed(Feed):
     title_template = 'cab/feeds/title.html'
     description_template = 'cab/feeds/description.html'
     item_copyright = 'Freely redistributable'
-    link = "/snippets/"
+    link = "/recipes/"
     description = "Latest snippets"
     author = "Snippets submitters"
 

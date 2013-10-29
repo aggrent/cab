@@ -29,7 +29,7 @@ class SnippetForm(forms.ModelForm):
 
     class Meta:
         model = Snippet
-        exclude = ('author', 'bookmark_count', 'rating_score',)
+        exclude = ('author', 'bookmark_count', 'rating_score', 'version', 'language')
 
 
 class SnippetFlagForm(forms.ModelForm):

@@ -43,6 +43,8 @@ class Language(models.Model):
         return lexers.get_lexer_by_name(self.language_code)
 
 
+def haskell(): return Language.objects.get(name='Haskell')
+
 class SnippetManager(models.Manager):
     def top_authors(self):
         return User.objects.annotate(
@@ -67,7 +69,7 @@ class SnippetManager(models.Manager):
 
 class Snippet(models.Model):
     title = models.CharField(max_length=255)
-    language = models.ForeignKey(Language)
+    language = models.ForeignKey(Language, default=haskell)
     author = models.ForeignKey(User)
     description = models.TextField()
     description_html = models.TextField(editable=False)
