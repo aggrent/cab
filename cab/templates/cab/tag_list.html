@@ -25,9 +25,9 @@
   <p>There are currently {{ hits }} tag{{ hits|pluralize }} in use.</p>
   <p>Currently, the most-used tags are:</p>
 
-  <ol>
-  {% for tag in "cab.snippet"|call_manager:"top_tags"|slice:":5" %}
-    <li><a href="{% url "cab_snippet_matches_tag" tag.slug %}">{{ tag.name }}</a></li>
+  <ul>
+  {% for tag in "cab.snippet"|call_manager:"top_tags"|slice:":10" %}
+    <li><a href="{% url "cab_snippet_matches_tag" tag.slug %}">{{ tag.name }}</a><span>{{ tag.num_times }}</span></li>
   {% endfor %}
-  </ol>
+  </l>
 {% endblock %}

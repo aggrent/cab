@@ -66,6 +66,9 @@ class SnippetManager(models.Manager):
     def matches_tag(self, tag):
         return self.filter(tags__in=[tag])
 
+    def count(self):
+        return self.count()
+
 
 class Snippet(models.Model):
     title = models.CharField(max_length=255)
