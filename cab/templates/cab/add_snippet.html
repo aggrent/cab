@@ -1,20 +1,18 @@
 {% extends "base_user.html" %}
 {% load static from staticfiles %}
 
-{% block extra_scripts %}
-  <script type="text/javascript" language="javascript" src="{% static "js/snippets.js" %}"></script>
-  <script type="text/javascript" language="javascript">
-    $(function() {
-      var tag_hint = new Snippets.TagCompletion();
-      tag_hint.bind_listener('input#id_q', 'input#id_output');
-    });
-  </script>
-{% endblock %}
-
 {% block title %}Add a snippet{% endblock %}
 
 {% block content_header %}Add a snippet{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static "css/autoSuggest.css" %}" />
+{% endblock %}
 
+{% block extra_scripts %}
+<script type="text/javascript" src="{% static "admin/js/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.autoSuggest.js" %}"></script>
+{% endblock %}
 {% block content %}
   <p><span class="error"><strong>Please remember that this site is not a pastebin or debugging tool; it is intended for finished, working pieces of code</strong></span>. If you need someplace to temporarily post some code while others help you debug it, please use the pastebin at <a href="http://lpaste.net/">lpaste.net</a>.</p>
 

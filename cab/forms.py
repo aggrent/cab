@@ -7,6 +7,7 @@ from cab.models import Language, Snippet, SnippetFlag, VERSIONS
 
 from registration.forms import RegistrationFormUniqueEmail
 
+from taggit_autosuggest.widgets import TagAutoSuggest
 
 def validate_non_whitespace_only_string(value):
     """

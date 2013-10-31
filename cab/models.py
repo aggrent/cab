@@ -6,7 +6,7 @@ from django.db.models import Count, permalink
 
 from comments_spamfighter.moderation import SpamFighterModerator
 from ratings.models import Ratings
-from taggit.managers import TaggableManager
+from taggit_autosuggest.managers import TaggableManager
 
 from markdown import markdown
 from pygments import formatters, highlight, lexers
@@ -66,7 +66,7 @@ class SnippetManager(models.Manager):
     def matches_tag(self, tag):
         return self.filter(tags__in=[tag])
 
-    def count(self):
+    def get_count(self):
         return self.count()
 
 
