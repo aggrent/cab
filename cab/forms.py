@@ -4,10 +4,13 @@ from django.contrib import admin
 from haystack.forms import SearchForm
 
 from cab.models import Language, Snippet, SnippetFlag, VERSIONS
-
 from registration.forms import RegistrationFormUniqueEmail
 
 from taggit_autosuggest.widgets import TagAutoSuggest
+from epiceditor.widgets import AdminEpicEditorWidget
+from codemirror.widgets import CodeMirrorTextarea
+
+haskell_textarea = CodeMirrorTextarea(mode="haskell", theme="ambiance", config={ 'fixedGutter': True, 'lineNumbers': False, 'viewportMargin': 5000 })
 
 def validate_non_whitespace_only_string(value):
     """
@@ -23,10 +26,10 @@ class SnippetForm(forms.ModelForm):
         validators=[validate_non_whitespace_only_string])
     description = forms.CharField(
         validators=[validate_non_whitespace_only_string],
-        widget=forms.Textarea)
+        widget=AdminEpicEditorWidget)
     code = forms.CharField(
         validators=[validate_non_whitespace_only_string],
-        widget=forms.Textarea)
+        widget=haskell_textarea)
 
     class Meta:
         model = Snippet

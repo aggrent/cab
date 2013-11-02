@@ -6,12 +6,33 @@
 {% block content_header %}Add a snippet{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static "css/autoSuggest.css" %}" />
+<link rel="stylesheet" href="{% static "codemirror/lib/codemirror.css" %}" />
+<link rel="stylesheet" href="{% static "codemirror/theme/ambiance.css" %}" />
+<style type="text/css">
+  .CodeMirror {
+    border: 1px solid #eee;
+    height: auto;
+    min-height: 300px;
+  font-size: 12px;
+  }
+
+  .CodeMirror-scroll {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .CodeMirror-hscrollbar {
+    display: none;
+  }
+</style>
 {% endblock %}
 
 {% block extra_scripts %}
 <script type="text/javascript" src="{% static "admin/js/jquery.js" %}"></script>
 <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
 <script type="text/javascript" src="{% static "js/jquery.autoSuggest.js" %}"></script>
+<script type="text/javascript" src="{% static "epiceditor/js/epiceditor.min.js" %}"></script>
+<script type="text/javascript" src="{% static "codemirror/lib/codemirror.js" %}"></script>
+<script type="text/javascript" src="{% static "codemirror/mode/haskell/haskell.js" %}"></script>
 {% endblock %}
 {% block content %}
   <p><span class="error"><strong>Please remember that this site is not a pastebin or debugging tool; it is intended for finished, working pieces of code</strong></span>. If you need someplace to temporarily post some code while others help you debug it, please use the pastebin at <a href="http://lpaste.net/">lpaste.net</a>.</p>
