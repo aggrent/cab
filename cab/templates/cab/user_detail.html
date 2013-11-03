@@ -4,18 +4,12 @@
 
 {% block feeds %}<link rel="alternate" href="/feeds/author/{{ author.username }}/" type="application/atom+xml" title="Feed of snippets by {{ author.username }}" />{% endblock %}
 
-{% block title %}Snippets by {{ author.username }}{% if months %}, last {{ months }} months{% endif %}{% endblock %}
+{% block title %}Recipes by {{ author.username }}{% if months %}, last {{ months }} months{% endif %}{% endblock %}
 
-{% block content_header %}Snippets by {{ author.username }}{% if months %}, last {{ months }} months{% endif %}{% endblock %}
+{% block content_header %}Recipes by {{ author.username }}{% if months %}, last {{ months }} months{% endif %}{% endblock %}
 
 
 {% block content %}
-  <ul class="snippet_filter">
-    <li{% if not months %} class="active"{% endif %}><a href="{{ request.path }}">Any time</a></li>
-    <li{% if months == 3 %} class="active"{% endif %}><a href="{{ request.path }}?months=3">3 months</a></li>
-    <li{% if months == 6 %} class="active"{% endif %}><a href="{{ request.path }}?months=6">6 months</a></li>
-    <li{% if months == 12 %} class="active"{% endif %}><a href="{{ request.path }}?months=12">1 year</a></li>
-  </ul>
   {% if object_list %}
     <ul class="snippet_list">
     {% for snippet in object_list %}
@@ -35,7 +29,7 @@
       {% endif %}
     </p>
   {% else %}
-    <p class="empty">No snippets posted yet.</p>
+    <p class="empty">No recipes posted yet.</p>
   {% endif %}
 {% endblock %}
 
@@ -43,13 +37,6 @@
   {% cache 600 author_detail_sidebar author.username %}
   <p>{% ifequal request.user author %}You've{% else %}{{ author.username }} has{% endifequal %} posted {{ author.snippet_set.count }} snippet{{ author.snippet_set.count|pluralize }}.</p>
 
-  <p><a rel="alternate" href="/feeds/author/{{ author.username }}/" type="application/atom+xml"><img src="{% static "img/feed-icon-10x10.png" %}" alt="" /> Feed of snippets by {{ author.username }}</a></p>
-
-  <p>The users who've submitted the most snippets are:</p>
-  <ol>
-  {% for author in "cab.snippet"|call_manager:"top_authors"|slice:":5" %}
-    <li><a href="/users/{{ author.username }}/">{{ author.username }}</a></li>
-  {% endfor %}
-  </ol>
+  <p><a rel="alternate" href="/feeds/author/{{ author.username }}/" type="application/atom+xml"><img src="{% static "img/rss.png" %}" alt="RSS" /> Feed of recipes by {{ author.username }}</a></p>
   {% endcache %}
 {% endblock %}

@@ -29,5 +29,5 @@
   {% for tag in "cab.snippet"|call_manager:"top_tags"|slice:":10" %}
     <li><a href="{% url "cab_snippet_matches_tag" tag.slug %}">{{ tag.name }}</a><span>{{ tag.num_times }}</span></li>
   {% endfor %}
-  </l>
+  </ul>
 {% endblock %}

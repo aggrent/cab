@@ -26,9 +26,9 @@ class LatestSnippetsFeed(Feed):
 
     def title(self):
         if SITE_NAME:
-            return "%s: Latest snippets" % SITE_NAME
+            return "%s: Latest recipes" % SITE_NAME
         else:
-            return "Latest snippets"
+            return "Latest recipes"
 
     def item_author_name(self, item):
         return item.author.username
@@ -66,10 +66,10 @@ class SnippetsByAuthorFeed(Feed):
 
     def title(self, obj):
         if SITE_NAME:
-            return ("%s: Latest snippets posted by %s" %
+            return ("%s: Latest recipes posted by %s" %
                     (SITE_NAME, obj.username))
         else:
-            return "Latest snippets posted by %s" % obj.username
+            return "Latest recipes posted by %s" % obj.username
 
     def item_author_name(self, item):
         return item.author.username
@@ -101,10 +101,10 @@ class SnippetsByLanguageFeed(Feed):
 
     def title(self, obj):
         if SITE_NAME:
-            return ("%s: Latest snippets written in %s" %
+            return ("%s: Latest recipes written in %s" %
                     (SITE_NAME, obj.name))
         else:
-            return "Latest snippets written in %s" % obj.name
+            return "Latest recipes written in %s" % obj.name
 
     def item_author_name(self, item):
         return item.author.username
@@ -137,10 +137,10 @@ class SnippetsByTagFeed(Feed):
 
     def title(self, obj):
         if SITE_NAME:
-            return ("%s: Latest snippets tagged with '%s'" %
+            return ("%s: Latest recipes tagged with '%s'" %
                     (SITE_NAME, obj.name))
         else:
-            return "Latest snippets tagged with '%s'" % obj.name
+            return "Latest recipes tagged with '%s'" % obj.name
 
     def item_author_name(self, item):
         return item.author.username
