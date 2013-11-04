@@ -2,9 +2,9 @@
 {% load core_tags %}
 {% load static from staticfiles %}
 
-{% block title %}All snippets{% if months %} last {{ months }} months{% endif %}{% endblock %}
+{% block title %}All recipes{% if months %} last {{ months }} months{% endif %}{% endblock %}
 
-{% block content_header %}All snippets{% if months %} last {{ months }} months{% endif %}{% endblock %}
+{% block content_header %}All recipes{% if months %} last {{ months }} months{% endif %}{% endblock %}
 
 {% block content %}
   {% if object_list %}
@@ -30,6 +30,6 @@
 {% endblock %}
 
 {% block sidebar %}
-  <p>{{ hits }} recipes{{ hits|pluralize }} posted so far.</p>
+  <p>{{ hits }} recipe{{ hits|pluralize }} posted so far.</p>
   <p><a rel="alternate" href="/feeds/latest/" type="application/atom+xml"><img src="{% static "img/rss.png" %}" alt="RSS" /> Feed of latest recipes</a></p>
 {% endblock %}
